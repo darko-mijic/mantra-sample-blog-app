@@ -22,3 +22,4 @@ check
 random
 standard-minifier-css
 standard-minifier-js
+space:tracker-mobx-autorun

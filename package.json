@@ -20,20 +20,27 @@
     "babel-root-slash-import": "^1.1.0",
     "chai": "3.x.x",
     "enzyme": "^2.2.0",
-    "eslint": "1.10.x",
-    "eslint-plugin-react": "3.15.x",
     "jsdom": "^8.0.4",
+    "mobx-react-devtools": "^4.2.3",
     "mocha": "2.x.x",
     "raw-loader": "^0.5.1",
     "react-addons-test-utils": "^15.0.0",
     "sinon": "1.17.x",
-    "style-loader": "^0.13.1"
+    "style-loader": "^0.13.1",
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb": "^10.0.0",
+    "eslint-plugin-import": "^1.12.0",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-react": "^6.0.0"
   },
   "dependencies": {
     "domready": "^1.0.8",
-    "mantra-core": "^1.7.0",
-    "react": "^15.0.0",
-    "react-dom": "^15.0.0",
+    "meteor-node-stubs": "^0.2.3",
+    "mobx": "^2.4.1",
+    "mobx-ajv-form": "^1.7.1",
+    "mobx-react": "^3.5.1",
+    "react": "^15.3.0 ",
+    "react-dom": "^15.3.0 ",
     "react-mounter": "^1.2.0"
   },
   "private": true
