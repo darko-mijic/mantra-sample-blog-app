@@ -5,7 +5,7 @@ import state from '../../store';
 
 export default observer(class extends Component {
   render() {
-    if (!state.posts) {
+    if (state.loadingPosts) {
       return <div>Loading...</div>;
     }
     return (<PostList posts={state.posts}/>);
