@@ -1,27 +1,21 @@
-import state from '../store';
-import * as Collections from '../../lib/collections';
 import { Meteor } from 'meteor/meteor';
-import { action } from 'mobx';
+import { observe } from 'meteor/space:tracker-mobx-autorun';
+import * as Collections from '../../lib/collections';
+import state from '../store';
 
 export default () => {
 
   // SELECTED POST
   const postId = state.selectedPostId;
   const options = {
-    sort: {createdAt: -1}
+    sort: { createdAt: -1 }
   };
 
-  let commentsSubscriptionHandle;
+  const commentsSubscriptionHandle = Meteor.subscribe('posts.comments', postId);
+  const cursor = Collections.Comments.find({ postId }, options);
 
-  // TODO: manage loading state if subscription is not ready
+  observe('commentsAutorun', state.comments, commentsSubscriptionHandle, cursor);
 
-  if (postId) {
-    commentsSubscriptionHandle = Meteor.subscribe('posts.comments', postId);
-  } else {
-    commentsSubscriptionHandle && commentsSubscriptionHandle.stop();
-  }
-  action('updateCommentsFromAutorun', (comments) => {
-    state.comments.replace(comments);
-  })(postId && commentsSubscriptionHandle.ready() ? Collections.Comments.find({postId}, options).fetch() : []);
+  return commentsSubscriptionHandle;
 
 };
