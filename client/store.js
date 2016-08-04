@@ -6,6 +6,7 @@ export default observable({
   posts: [],
   loadingPosts: null,
   comments: [],
+  loadingComments: null,
   newPostFormStatus: null,
   newPostFormSavingLastError: null,
   newCommentFormStatus: null,

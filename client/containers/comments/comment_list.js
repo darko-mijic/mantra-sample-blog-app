@@ -5,7 +5,7 @@ import state from '../../store';
 
 export default observer(class extends Component {
   render() {
-    if (!state || !state.selectedPostId || !state.comments) {
+    if (state.loadingComments) {
       return <div>Loading...</div>;
     }
     return <CommentList postId={state.selectedPostId} comments={state.comments}/>;
